@@ -20,4 +20,10 @@ class HomeController extends GetxController {
   }
 
   void increment() => count.value++;
+
+  final tabIndex = 0.obs;
+
+  void changeTabIndex(int index) {
+    tabIndex.value = index;
+  }
 }

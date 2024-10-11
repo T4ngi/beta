@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/modules/home/views/about_us_page.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'dart:io' as io; 
+import 'package:flutter/services.dart'; 
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -11,7 +14,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   File? _profileImage;
   final ImagePicker _picker = ImagePicker();
 
-  // Function to pick an image from the gallery
+ 
   void _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -30,13 +33,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: Colors.brown,
       ),
       body: Container(
-        color: Colors.pink[50], // Background color to match your design
+        color: Colors.pink[50], 
         padding: EdgeInsets.all(20),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Displaying the profile image or default icon
+             
               _profileImage != null
                   ? CircleAvatar(
                       radius: 50,
@@ -44,12 +47,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     )
                   : CircleAvatar(
                       radius: 50,
-                      backgroundColor: Colors.grey[300], // Background color for default icon
+                      backgroundColor: Colors.grey[300], 
                       child: Icon(Icons.person, size: 50, color: Colors.grey[700]),
                     ),
               SizedBox(height: 20),
               Text(
-                'Nama User', // You can replace this with actual user name
+                'Nama User', 
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -57,7 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               SizedBox(height: 10),
-              // Button to update the profile image
+             
               ElevatedButton(
                 onPressed: _pickImage,
                 child: Text('Update Profile Picture'),
@@ -66,23 +69,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               SizedBox(height: 20),
-              // List of options
+            
               ListTile(
-                title: Text('Tentang kami', style: TextStyle(color: Colors.black54)),
+                title: Text('Tentang Kami', style: TextStyle(color: Colors.black54)),
                 onTap: () {
-                  // Implement your navigation or functionality here
+                
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutUsPage()),
+                  );
                 },
               ),
               ListTile(
                 title: Text('History Pembayaran', style: TextStyle(color: Colors.black54)),
                 onTap: () {
-                  // Implement your navigation or functionality here
+                  
                 },
               ),
               ListTile(
                 title: Text('Keluar', style: TextStyle(color: Colors.black54)),
                 onTap: () {
-                  // Implement your logout functionality here
+                 
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Konfirmasi Keluar'),
+                        content: Text('Apakah Anda yakin ingin keluar?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(); 
+                            },
+                            child: Text('Batal'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                             
+                              SystemNavigator.pop();
+                             
+                            },
+                            child: Text('Keluar'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
               ),
             ],

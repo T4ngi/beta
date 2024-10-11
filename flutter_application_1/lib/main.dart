@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Nginap di Wawan',
       initialRoute: AppRoutes.login,
       getPages: AppRoutes.routes,
