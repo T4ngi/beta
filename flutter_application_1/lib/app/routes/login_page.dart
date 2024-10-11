@@ -11,7 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
   final AuthController authController = Get.put(AuthController());
 
-  // Variabel untuk kontrol animasi pada tombol
+ 
   double _scaleFactor = 1.0;
   double _adminScaleFactor = 1.0;
   double _daftarScaleFactor = 1.0;
@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Icon Home dengan efek blur
+               
                 Container(
                   height: 140,
                   width: 140,
