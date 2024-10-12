@@ -36,79 +36,59 @@ class homeNav extends GetView {
             selectedLabelStyle: selectedLabelStyle,
             items: [
               BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Container(
-                      width: 20,
-                      color: landingPageController.tabIndex.value == 0
-                          ? const Color.fromARGB(255, 0, 0, 0)
-                          : null,
-                    ),
-                    const Icon(Icons.home, size: 25.0),
-                  ],
+                icon: Icon(
+                  Icons.home,
+                  size: 25.0,
+                  color: landingPageController.tabIndex.value == 0
+                      ? const Color.fromARGB(255, 0, 0, 0)
+                      : const Color.fromARGB(255, 255, 255, 255),
                 ),
-                label: '',
-                backgroundColor: Colors.brown,
+                label: 'Home',
+                backgroundColor: Color(0xFFA52A2A),
               ),
               BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Container(
-                      width: 20,
-                      color: landingPageController.tabIndex.value == 1
-                          ? const Color.fromARGB(255, 0, 0, 0)
-                          : null,
-                    ),
-                    const Icon(Icons.calendar_today, size: 25.0),
-                  ],
+                icon: Icon(
+                  Icons.calendar_today,
+                  size: 25.0,
+                  color: landingPageController.tabIndex.value == 1
+                      ? const Color.fromARGB(255, 0, 0, 0)
+                      : const Color.fromARGB(255, 255, 255, 255),
                 ),
-                label: '',
-                backgroundColor: Colors.brown,
+                label: 'Kalender',
+                backgroundColor: Color(0xFFA52A2A),
               ),
               BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Container(
-                      width: 20,
-                      color: landingPageController.tabIndex.value == 2
-                          ? const Color.fromARGB(255, 0, 0, 0)
-                          : const Color.fromARGB(255, 255, 255, 255),
-                    ),
-                    const Icon(Icons.qr_code_scanner, size: 25.0),
-                  ],
+                icon: Icon(
+                  Icons.qr_code_scanner,
+                  size: 25.0,
+                  color: landingPageController.tabIndex.value == 2
+                      ? const Color.fromARGB(255, 0, 0, 0)
+                      : const Color.fromARGB(255, 255, 255, 255),
                 ),
-                label: '',
-                backgroundColor: Colors.brown,
+                label: 'QR Code',
+                backgroundColor: Color(0xFFA52A2A),
               ),
               BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Container(
-                      width: 20,
-                      color: landingPageController.tabIndex.value == 2
-                          ? const Color.fromARGB(255, 0, 0, 0)
-                          : const Color.fromARGB(255, 255, 255, 255),
-                    ),
-                    const Icon(Icons.notifications, size: 25.0),
-                  ],
+                icon: Icon(
+                  Icons.notifications,
+                  size: 25.0,
+                  color: landingPageController.tabIndex.value == 3
+                      ? const Color.fromARGB(255, 0, 0, 0)
+                      : const Color.fromARGB(255, 255, 255, 255),
                 ),
-                label: '',
-                backgroundColor: Colors.brown,
+                label: 'Notification',
+                backgroundColor: Color(0xFFA52A2A),
               ),
               BottomNavigationBarItem(
-                icon: Column(
-                  children: [
-                    Container(
-                      width: 20,
-                      color: landingPageController.tabIndex.value == 2
-                          ? const Color.fromARGB(255, 0, 0, 0)
-                          : const Color.fromARGB(255, 255, 255, 255),
-                    ),
-                    const Icon(Icons.person, size: 25.0),
-                  ],
+                icon: Icon(
+                  Icons.person,
+                  size: 25.0,
+                  color: landingPageController.tabIndex.value == 4
+                      ? const Color.fromARGB(255, 0, 0, 0)
+                      : const Color.fromARGB(255, 255, 255, 255),
                 ),
-                label: '',
-                backgroundColor: Colors.brown,
+                label: 'Account',
+                backgroundColor: Color(0xFFA52A2A),
               ),
             ],
           ),
@@ -119,20 +99,31 @@ class homeNav extends GetView {
   Widget build(BuildContext context) {
     final HomeController landingPageController =
         Get.put(HomeController(), permanent: false);
-    return SafeArea(
+    return WillPopScope(
+      onWillPop: () async {
+        if (landingPageController.tabIndex.value > 0) {
+          landingPageController.changeTabIndex(landingPageController.tabIndex.value - 1);
+          return false;
+        } else {
+          return true;
+        }
+      },
+      child: SafeArea(
         child: Scaffold(
-      bottomNavigationBar:
-          buildBottomNavigationMenu(context, landingPageController),
-      body: Obx(() => IndexedStack(
-            index: landingPageController.tabIndex.value,
-            children: [
-              HomePage(),
-              CalendarScreen(),
-              ScanQRScreen(),
-              NotificationScreen(),
-              ProfileScreen()
-            ],
-          )),
-    ));
+          bottomNavigationBar:
+              buildBottomNavigationMenu(context, landingPageController),
+          body: Obx(() => IndexedStack(
+                index: landingPageController.tabIndex.value,
+                children: [
+                  HomePage(),
+                  CalendarScreen(),
+                  ScanQRScreen(),
+                  NotificationScreen (),
+                  ProfileScreen()
+                ],
+              )),
+        ),
+      ),
+    );
   }
 }

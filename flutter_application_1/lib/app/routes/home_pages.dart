@@ -66,9 +66,9 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[100],
       body: SingleChildScrollView(
           child: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.only(left: 30, right: 30),
-          child: Column(
+            child: Container(
+              padding:  EdgeInsets.zero,
+              child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Header Row
@@ -83,16 +83,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      _showSettingsOptions(context);
-                    },
-                    child: Icon(
-                      Icons.settings,
-                      size: 20,
-                      color: Colors.black54,
-                    ),
-                  ),
                   SizedBox(width: 10), // Spasi antara setting dan chat icon
                   GestureDetector(
                     onTap: () {
@@ -101,8 +91,19 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Icon(
                       Icons.chat_bubble_outline, // Ikon chat bubble
-                      size: 20,
-                      color: Colors.black54,
+                      size: 25,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  GestureDetector(
+                    onTap: () {
+                      _showSettingsOptions(context);
+                    },
+                    child: Icon(
+                      Icons.settings,
+                      size: 25,
+                      color:  Colors.black,
                     ),
                   ),
                 ],
@@ -129,76 +130,78 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 20),
 
               // Section: Point Nginap
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(5, 10),
-                      blurRadius: 20,
-                      color: Colors.grey.withOpacity(0.2),
-                    ),
-                  ],
-                ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30), // Tambahkan padding di kedua sisi
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20, top: 25),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Point Nginap",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white70,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            "1320",
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(() => TopUpScreen());
-                        },
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.white24,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Top Up",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              SizedBox(width: 5),
-                              Icon(
-                                Icons.arrow_upward,
-                                size: 25,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                        ),
+                  width: MediaQuery.of(context).size.width - 60, // Lebar dikurangi padding
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.brown,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(5, 10),
+                        blurRadius: 20,
+                        color: Colors.grey.withOpacity(0.2),
                       ),
                     ],
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 20, top: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Point Nginap",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white70,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "1320",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => TopUpScreen());
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.white24,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Top Up",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Icon(
+                                  Icons.arrow_upward,
+                                  size: 25,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -210,11 +213,7 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 height: 60,
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 173, 36, 27),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
+                  color: const Color(0xFFA52A2A),
                   boxShadow: [
                     BoxShadow(
                       offset: Offset(5, 10),
@@ -234,8 +233,8 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Tipe Kamar",
                             style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white70,
+                              fontSize: 20,
+                              color: Colors.white,
                             ),
                           ),
                           SizedBox(height: 5),
@@ -277,7 +276,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               Obx(() => Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(5),
                     color: const Color.fromARGB(255, 231, 210, 192),
                     height: 250, // Set height for the horizontal list
                     child: PageView.builder(
@@ -296,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 173, 36, 27),
+                    color: const Color(0xFFA52A2A),
                     boxShadow: [
                       BoxShadow(
                         offset: Offset(5, 10),
@@ -316,7 +315,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: EdgeInsets.all(10),
                 color: const Color.fromARGB(255, 231, 210, 192),
-                height: 300, // Set height for the horizontal list
+                height: 320, // Set height for the horizontal list
                 child: PageView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: controller.products.length,
@@ -324,7 +323,7 @@ class _HomePageState extends State<HomePage> {
                     var product = controller.products[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: _buildHorizontalProductCard(product),
+                      child: _buildHighlightSection(),
                     );
                   },
                 ),
@@ -372,7 +371,9 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
+          Container(
+            height: 100,
+            width: double.infinity,
             child: Image.asset(
               product['image']!,
               fit: BoxFit.cover,
@@ -382,6 +383,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(8.0),
             child: Text(product['name']!, style: TextStyle(fontSize: 16)),
           ),
+          SizedBox(height: 0,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
@@ -413,6 +415,61 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(8.0),
             child: Text(product['location']!,
                 style: TextStyle(color: Colors.grey)),
+          ),
+        ],
+      ),
+    );
+  }
+
+   Widget _buildHighlightSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: 300,
+          child: ListView(
+            children: [
+              _buildHighlightCard(),
+              _buildHighlightCard(),
+              _buildHighlightCard(),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHighlightCard() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        children: [
+          Center(
+            child: Container(
+              height: 200,
+              width: 300,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), // adjust the radius value as needed
+                image: DecorationImage(
+                  image: AssetImage('assets/images/room_image.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                Text('Pemandangan Indah',textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                Text('Nikmati pemandangan alam yang menyejukkan mata dari kamar Anda. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', textAlign: TextAlign.center),
+              ],
+            ),
           ),
         ],
       ),

@@ -5,7 +5,8 @@ class MapsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Maps"),
+        title: Text("Maps", style: TextStyle(color: Colors.white),),
+        backgroundColor: Color(0xFFA52A2A),
       ),
       body: Center(
         child: Text("This is the Maps Page"),

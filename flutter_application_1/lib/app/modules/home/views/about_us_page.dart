@@ -5,8 +5,8 @@ class AboutUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tentang Kami'),
-        backgroundColor: Colors.brown, // Warna AppBar
+        title: Text('Tentang Kami', style: TextStyle(color: Colors.white),),
+        backgroundColor: Color(0xFFA52A2A), // Warna AppBar
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

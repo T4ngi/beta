@@ -29,30 +29,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
-        backgroundColor: Colors.brown,
+        title: Text('Profile', style: TextStyle(color: Colors.white),),
+        backgroundColor: Color(0xFFA52A2A),
       ),
       body: Container(
-        color: Colors.pink[50], 
+        color: Colors.pink[50],
         padding: EdgeInsets.all(20),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             
-              _profileImage != null
-                  ? CircleAvatar(
-                      radius: 50,
-                      backgroundImage: FileImage(_profileImage!),
-                    )
-                  : CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Colors.grey[300], 
-                      child: Icon(Icons.person, size: 50, color: Colors.grey[700]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  _profileImage != null
+                      ? CircleAvatar(
+                          radius: 50,
+                          backgroundImage: FileImage(_profileImage!),
+                        )
+                      : CircleAvatar(
+                          radius: 50,
+                          backgroundColor: Colors.grey[300],
+                          child: Icon(Icons.person, size: 50, color: Colors.grey[700]),
+                        ),
+                  SizedBox(width: 20), // Jarak antara Circle Avatar dan tombol
+                  ElevatedButton(
+                    onPressed: _pickImage,
+                    child: Text('Update Profile Picture', style: TextStyle(color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFA52A2A), // Button color
                     ),
+                  ),
+                ],
+              ),
               SizedBox(height: 20),
               Text(
-                'Nama User', 
+                'Nama User',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -60,18 +73,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               SizedBox(height: 10),
-             
-              ElevatedButton(
-                onPressed: _pickImage,
-                child: Text('Update Profile Picture'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown, // Button color
-                ),
-              ),
-              SizedBox(height: 20),
             
               ListTile(
-                title: Text('Tentang Kami', style: TextStyle(color: Colors.black54)),
+                title: Text('Tentang Kami', style: TextStyle(color: Colors.black)),
                 onTap: () {
                 
                   Navigator.push(
@@ -81,13 +85,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
               ),
               ListTile(
-                title: Text('History Pembayaran', style: TextStyle(color: Colors.black54)),
+                title: Text('History Pembayaran', style: TextStyle(color: Colors.black)),
                 onTap: () {
                   
                 },
               ),
               ListTile(
-                title: Text('Keluar', style: TextStyle(color: Colors.black54)),
+                title: Text('Keluar', style: TextStyle(color: Colors.black)),
                 onTap: () {
                  
                   showDialog(

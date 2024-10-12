@@ -14,7 +14,8 @@ class FeedbackScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Kritik Dan Saran"),
+        backgroundColor: Color(0xFFA52A2A),
+        title: Text("Kritik Dan Saran", style: TextStyle(color: Colors.white),),
       ),
       body: ListView.builder(
         itemCount: feedbackList.length,
@@ -34,14 +35,14 @@ class FeedbackScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Kritik :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                         ),
                         SizedBox(height: 5),
                         Text(feedback["critique"]!), // Correct key used here
                         SizedBox(height: 10),
                         Text(
                           "Saran :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                         ),
                         SizedBox(height: 5),
                         Text(feedback["suggestion"]!), // Correct key used here
