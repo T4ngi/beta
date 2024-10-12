@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/routes/Register_Page.dart';
+import 'package:flutter_application_1/app/routes/auth_controller.dart';
+import 'package:get/get.dart';
 import 'reset_password_page.dart';
 
 class FilledLoginPage extends StatelessWidget {
-  final String title;
-
-  FilledLoginPage({required this.title});
-
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class FilledLoginPage extends StatelessWidget {
                         ],
                       ),
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/Logo.png',
                         width: 200,
                         height: 200,
                       ),
@@ -98,7 +98,7 @@ class FilledLoginPage extends StatelessWidget {
                           Flexible(
                             child: TextButton(
                              onPressed: () {
-                                Navigator.pushNamed(context, '/daftar');
+                                Get.to(() => RegistrationPage());
                               },
                               child: Text(
                                 'Belum punya akun?',
@@ -111,8 +111,11 @@ class FilledLoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 30),
                     ElevatedButton(
-                      onPressed: () {},
-                      child: Text(title.toUpperCase()),
+                      onPressed: () {
+                        authController.login();
+                        // Add your login logic here
+                      },
+                      child: Text('MASUK'),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Color(0xFFA52A2A),

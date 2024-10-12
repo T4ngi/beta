@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/routes/Register_Page.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/app/routes/auth_controller.dart';
-import 'package:flutter_application_1/app/routes/admin_page.dart';
+import 'filled_login_page.dart'; // Import the FilledLoginPage
 
 class LoginPage extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
@@ -46,10 +47,11 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20),
+                    SizedBox(height: 40),
                     // Login Button
                     ElevatedButton(
                       onPressed: () {
-                        authController.login(); // Call login method
+                        Get.to(() => FilledLoginPage());
                       },
                       child: Text('MASUK'),
                       style: ElevatedButton.styleFrom(
@@ -62,7 +64,7 @@ class LoginPage extends StatelessWidget {
                     // Register Button
                     ElevatedButton(
                       onPressed: () {
-                        Get.toNamed('/daftar'); // Navigate to Sign Up Page
+                        Get.to(() => RegistrationPage()); // Navigate to Sign Up Page
                       },
                       child: Text('DAFTAR'),
                       style: ElevatedButton.styleFrom(
@@ -75,7 +77,7 @@ class LoginPage extends StatelessWidget {
                     // Admin Button
                     ElevatedButton(
                       onPressed: () {
-                        Get.to(() => AdminPage()); // Navigate to Admin Page
+                        Get.to(() => FilledLoginPage());
                       },
                       child: Text('ADMIN'),
                       style: ElevatedButton.styleFrom(

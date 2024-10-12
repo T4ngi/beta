@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/routes/filled_login_page.dart';
+import 'package:get/get.dart';
 
 class FilledResetPasswordPage extends StatelessWidget {
   @override
@@ -35,7 +37,7 @@ class FilledResetPasswordPage extends StatelessWidget {
                           ],
                         ),
                         child: Image.asset(
-                          'assets/images/logo.png',
+                          'assets/images/Logo.png',
                           width: 200,
                           height: 200,
                         ),
@@ -79,7 +81,7 @@ class FilledResetPasswordPage extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {
                             // Navigate to login page
-                            Navigator.pushReplacementNamed(context, '/login');
+                            Get.to(() => FilledLoginPage());
                           },
                           child: Text(
                             'Ubah',

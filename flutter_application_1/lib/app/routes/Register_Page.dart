@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/routes/login_page.dart';
+import 'package:get/get.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({Key? key}) : super(key: key);
@@ -171,6 +173,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               padding: const EdgeInsets.all(20.0),
               child: ElevatedButton(
                 onPressed: () {
+                  Get.to(() => LoginPage());
                   // tambahkan kode yang ingin dijalankan saat tombol ditekan
                 },
                 child: const Text('Daftar'),

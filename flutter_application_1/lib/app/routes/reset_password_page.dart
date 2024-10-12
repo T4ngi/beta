@@ -46,7 +46,7 @@ class ResetPWPage extends StatelessWidget {
                         ],
                       ),
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/Logo.png',
                         width: 200,
                         height: 200,
                       ),

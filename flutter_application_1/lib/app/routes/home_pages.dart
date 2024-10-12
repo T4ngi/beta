@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               Row(
                 children: [
                   Text(
-                    "Penginapan",
+                    "Nginep di Wawan",
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.black,

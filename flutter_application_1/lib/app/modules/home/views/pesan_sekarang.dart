@@ -316,21 +316,21 @@ class _RoomTypeState extends State<RoomType> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 30),
                       Text(
                         'Kamar tidur sederhana khusus 1 orang',
                         style: TextStyle(color: Colors.blueGrey, fontSize: 16),
                       ),
-                      SizedBox(height: 180),
+                      SizedBox(height: 150),
                       SizedBox(
-                        height: 160,
+                        height: 210,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
-                            _buildRoomImage('assets/image1.jpg'),
-                            _buildRoomImage('assets/image2.jpg'),
-                            _buildRoomImage('assets/image3.jpg'),
-                            _buildRoomImage('assets/image4.jpg'),
+                            _buildRoomImage('assets/images/image1.jpg'),
+                            _buildRoomImage('assets/images/image2.jpg'),
+                            _buildRoomImage('assets/images/image3.jpg'),
+                            _buildRoomImage('assets/images/image4.jpg'),
                           ],
                         ),
                       ),
@@ -338,7 +338,7 @@ class _RoomTypeState extends State<RoomType> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          child: Text('Rp. ${widget.price}/Hari (${widget.points} Point)'),
+                          child: Text('Rp. ${widget.price}/Hari (${widget.points} Point)', style: TextStyle(color: Colors.white),),
                           onPressed: () {
                             // Handle booking
                             print('Booking button pressed');

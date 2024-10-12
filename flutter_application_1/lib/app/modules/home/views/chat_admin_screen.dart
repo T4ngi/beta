@@ -11,8 +11,8 @@ class ChatAdminScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat dengan Admin'),
-        backgroundColor: Colors.brown,
+        title: Text('Chat dengan Admin', style: TextStyle(color: Colors.white),),
+        backgroundColor: Color(0xFFA52A2A),
       ),
       body: Column(
         children: [
@@ -73,7 +73,7 @@ class ChatAdminScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 10),
                 IconButton(
-                  icon: Icon(Icons.send, color: Colors.brown),
+                  icon: Icon(Icons.send, color: Color(0xFFA52A2A)),
                   onPressed: () {
                     if (_messageController.text.isNotEmpty) {
                       _chatAdminController.sendMessage(
